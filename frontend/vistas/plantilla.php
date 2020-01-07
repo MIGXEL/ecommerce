@@ -9,6 +9,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tienda Virtual - AntvasWeb</title>
 
+    <?php
+    $icono = ControladorPlantilla::ctrEstiloPlantilla();
+    echo '<link rel="icon" href="http://localhost/ecommerce/backend/'.$icono["icono"].'">';
+    ?>
+
     <link rel="stylesheet" href="vistas/css/plugins/bootstrap.min.css">
     <link rel="stylesheet" href="vistas/css/plugins/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Ubuntu:400,700&display=swap" rel="stylesheet">
@@ -24,7 +29,12 @@
 CABEZOTE
 =============================================*/
 include 'modulos/cabezote.php';
+
 ?>
+
+<script src="vistas/js/cabezote.js"></script>
+<script src="vistas/js/plantilla.js"></script>
+
 
 </body>
 
