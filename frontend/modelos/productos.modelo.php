@@ -4,9 +4,30 @@ require_once "conexion.php";
 
 class ModeloProductos{
 
-    static public function mdlMostrarCategorias($tabla){
+    static public function mdlMostrarCategorias($tabla, $item, $valor){
 
-        $stmt = Conexion::conectar() -> prepare("SELECT * FROM $tabla");
+        if ($item != null) {
+            # code...
+            $stmt = Conexion::conectar() -> prepare("SELECT * FROM $tabla WHERE $item = :$item");
+            $stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+            $stmt -> execute();
+            return $stmt -> fetch();
+
+        } else {
+            # code...
+            $stmt = Conexion::conectar() -> prepare("SELECT * FROM $tabla");
+            $stmt -> execute();
+            return $stmt -> fetchAll();
+        }
+
+        $stmt -> close();
+        $stmt = null;
+    }
+
+    static public function mdlMostrarSubCategorias($tabla, $id){
+
+        $stmt = Conexion::conectar() -> prepare("SELECT * FROM $tabla WHERE id_categoria = :id_categoria");
+        $stmt -> bindParam(":id_categoria", $id, PDO::PARAM_INT);
         $stmt -> execute();
         return $stmt -> fetchAll();
         $stmt -> close();

@@ -2,10 +2,17 @@
 
 class ControladorProductos{
 
-    public function ctrMostrarCategorias(){
+    static public function ctrMostrarCategorias($item, $valor){
 
         $tabla = "categorias";
-        $respuesta = ModeloProductos::mdlMostrarCategorias($tabla);
+        $respuesta = ModeloProductos::mdlMostrarCategorias($tabla, $item, $valor);
+        return $respuesta;
+    }
+
+    static public function ctrMostrarSubCategorias($id){
+
+        $tabla = "subcategorias";
+        $respuesta = ModeloProductos::mdlMostrarSubCategorias($tabla, $id);
         return $respuesta;
     }
 }

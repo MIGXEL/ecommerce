@@ -161,7 +161,11 @@ HEADER
 		<div class="col-xs-12 backColor" id="categorias">
 
 			<?php
-			$categorias = ControladorProductos::ctrMostrarCategorias();
+
+			$item = null;
+			$valor = null;
+
+			$categorias = ControladorProductos::ctrMostrarCategorias($item, $valor);
 			/* var_dump($categorias); */
 
 			foreach ($categorias as $key => $value) {
@@ -172,20 +176,20 @@ HEADER
 					<div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
 						
 						<h4>
-							<a href="#" class="pixelCategorias">'.$value["categoria"].'</a>
+							<a href="'.$value["ruta"].'" class="pixelCategorias">'.$value["categoria"].'</a>
 						</h4>
 						
 						<hr>
 		
-						<ul>
+						<ul>';
+
+						$subcategorias = ControladorProductos::ctrMostrarSubCategorias($value["id"]);
+						foreach ($subcategorias as $key => $value) {
+
+							echo '<li><a href="'.$value["ruta"].'" class="pixelSubCategorias">'.$value["subcategoria"].'</a></li>';
+						}
 							
-							<li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-							<li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-							<li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-							<li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-							<li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-										
-						</ul>
+						echo '</ul>
 		
 					</div>	
 				';
