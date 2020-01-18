@@ -24,10 +24,10 @@ class ModeloProductos{
         $stmt = null;
     }
 
-    static public function mdlMostrarSubCategorias($tabla, $id){
+    static public function mdlMostrarSubCategorias($tabla, $item, $valor){
 
-        $stmt = Conexion::conectar() -> prepare("SELECT * FROM $tabla WHERE id_categoria = :id_categoria");
-        $stmt -> bindParam(":id_categoria", $id, PDO::PARAM_INT);
+        $stmt = Conexion::conectar() -> prepare("SELECT * FROM $tabla WHERE $item = :$item");
+        $stmt -> bindParam(":".$item, $valor, PDO::PARAM_INT);
         $stmt -> execute();
         return $stmt -> fetchAll();
         $stmt -> close();
