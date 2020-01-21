@@ -54,7 +54,7 @@ SLIDESHOW
 
 				<div class="slideOpciones slideOpcion2">
 					
-					<img class="imgProducto" src="http://localhost/ecommerce/backend/vistas/img/slide/slide2/curso.png" style="top:5%; left:15%; width:25%">
+					<img class="imgProducto" src="http://localhost/ecommerce/backend/vistas/img/slide/slide2/curso.png" style="top:5%; left:15%; width:20%">
 
 					<div class="textosSlide" style="top:15%; right:15%; width:40%">
 						
@@ -88,7 +88,7 @@ SLIDESHOW
 
 				<div class="slideOpciones slideOpcion2">
 					
-					<img class="imgProducto" src="http://localhost/ecommerce/backend/vistas/img/slide/slide3/iphone.png" style="top:5%; left:15%; width:25%">
+					<img class="imgProducto" src="http://localhost/ecommerce/backend/vistas/img/slide/slide3/iphone.png" style="top:5%; left:15%; width:20%">
 
 					<div class="textosSlide" style="top:15%; right:15%; width:40%">
 						
