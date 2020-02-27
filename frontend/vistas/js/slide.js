@@ -10,37 +10,47 @@ var titulos2 = $("#slide h2");
 var titulos3 = $("#slide h3");
 var btnVerProducto = $("#slide button");
 var detenerIntervalo = false;
+var toogle = false;
+
+$("#slide ul li").css({"width":100/$("#slide ul li").length + "%"})
+$("#slide ul").css({"width":$("#slide ul li").length*100 + "%"})
+
+/*=============================================
+ANIMACIÓN INICIAL
+=============================================*/
+
+$(imgProducto[item]).animate({"top":-10 +"%", "opacity": 0},100)
+$(imgProducto[item]).animate({"top":30 +"px", "opacity": 1},600)
+
+$(titulos1[item]).animate({"top":-10 +"%", "opacity": 0},100)
+$(titulos1[item]).animate({"top":30 +"px", "opacity": 1},600)
+
+$(titulos2[item]).animate({"top":-10 +"%", "opacity": 0},100)
+$(titulos2[item]).animate({"top":30 +"px", "opacity": 1},600)
+
+$(titulos3[item]).animate({"top":-10 +"%", "opacity": 0},100)
+$(titulos3[item]).animate({"top":30 +"px", "opacity": 1},600)
+
+$(btnVerProducto[item]).animate({"top":-10 +"%", "opacity": 0},100)
+$(btnVerProducto[item]).animate({"top":30 +"px", "opacity": 1},600)
 
 
-/***************************** 
-            ANIMACIONES
-******************************/
-
-$(titulos1[item]).animate({"top": -10 + "%", "opacity": 0}, 100)
-$(titulos1[item]).animate({"top": 30 + "px", "opacity": 1}, 1000)
-
-$(titulos2[item]).animate({"top": -10 + "%", "opacity": 0}, 100)
-$(titulos2[item]).animate({"top": 30 + "px", "opacity": 1}, 1000)
-
-$(titulos3[item]).animate({"top": -10 + "%", "opacity": 0}, 100)
-$(titulos3[item]).animate({"top": 30 + "px", "opacity": 1}, 1000)
-
-$(btnVerProducto[item]).animate({"top": -10 + "%", "opacity": 0}, 100)
-$(btnVerProducto[item]).animate({"top": 30 + "px", "opacity": 1}, 1000)
-
-
-/***************************** 
-            PAGINACION 
-******************************/
+/*=============================================
+PAGINACIÓN
+=============================================*/
 
 
 $("#paginacion li").click(function() {
 
-    item = $(this).attr("item") - 1;
+    item = $(this).attr("item")-1;
 
     movimientoSlide(item);
 
 })
+
+/*=============================================
+AVANZAR
+=============================================*/
 
 function avanzar() {
 
@@ -62,6 +72,10 @@ $("#slide #avanzar").click(function() {
     avanzar();
 })
 
+/*=============================================
+RETROCEDER
+=============================================*/
+
 $("#slide #retroceder").click(function() {
 
     if (item == 0) {
@@ -76,6 +90,9 @@ $("#slide #retroceder").click(function() {
     movimientoSlide(item);
 })
 
+/*=============================================
+MOVIMIENTO SLIDE
+=============================================*/
 
 function movimientoSlide(item) {
 
@@ -85,23 +102,27 @@ function movimientoSlide(item) {
 
     interrumpirCiclo = true;
 
-    $(imgProducto[item]).animate({"top": -10 + "%", "opacity": 0}, 100)
-    $(imgProducto[item]).animate({"top": 30 + "px", "opacity": 1}, 1000)
+    $(imgProducto[item]).animate({"top":-10 +"%", "opacity": 0},100)
+	$(imgProducto[item]).animate({"top":30 +"px", "opacity": 1},600)
 
-    $(titulos1[item]).animate({"top": -10 + "%", "opacity": 0}, 100)
-    $(titulos1[item]).animate({"top": 30 + "px", "opacity": 1}, 1500)
+	$(titulos1[item]).animate({"top":-10 +"%", "opacity": 0},100)
+	$(titulos1[item]).animate({"top":30 +"px", "opacity": 1},600)
 
-    $(titulos2[item]).animate({"top": -10 + "%", "opacity": 0}, 100)
-    $(titulos2[item]).animate({"top": 30 + "px", "opacity": 1}, 1500)
+	$(titulos2[item]).animate({"top":-10 +"%", "opacity": 0},100)
+	$(titulos2[item]).animate({"top":30 +"px", "opacity": 1},600)
 
-    $(titulos3[item]).animate({"top": -10 + "%", "opacity": 0}, 100)
-    $(titulos3[item]).animate({"top": 30 + "px", "opacity": 1}, 1500)
+	$(titulos3[item]).animate({"top":-10 +"%", "opacity": 0},100)
+	$(titulos3[item]).animate({"top":30 +"px", "opacity": 1},600)
 
-    $(btnVerProducto[item]).animate({"top": -10 + "%", "opacity": 0}, 100)
-    $(btnVerProducto[item]).animate({"top": 30 + "px", "opacity": 1}, 1000)
+	$(btnVerProducto[item]).animate({"top":-10 +"%", "opacity": 0},100)
+	$(btnVerProducto[item]).animate({"top":30 +"px", "opacity": 1},600)
 
 
 }
+
+/*=============================================
+INTERVALO
+=============================================*/
 
 setInterval(() => {
 
@@ -140,3 +161,22 @@ $("#slide").mouseout(function(){
     detenerIntervalo = false;
 })
 
+/***************************** 
+    ESCONDER SLIDE
+******************************/
+
+$("#btnSlide").click(function(){
+
+    if (!toogle) {
+
+        toogle = true;
+        $("#slide").slideUp();
+        $("#btnSlide").html('<i class="fa fa-angle-down"></i>');
+        
+    } else {
+        
+        toogle = false;
+        $("#slide").slideDown();
+        $("#btnSlide").html('<i class="fa fa-angle-up"></i>');
+    }
+})
