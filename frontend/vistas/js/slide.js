@@ -12,6 +12,7 @@ var btnVerProducto = $("#slide button");
 var detenerIntervalo = false;
 var toogle = false;
 
+
 $("#slide ul li").css({"width":100/$("#slide ul li").length + "%"})
 $("#slide ul").css({"width":$("#slide ul li").length*100 + "%"})
 
@@ -54,7 +55,7 @@ AVANZAR
 
 function avanzar() {
 
-    if (item == 3) {
+    if (item == $("#slide ul li").length -1) {
 
         item = 0;
 
@@ -63,6 +64,7 @@ function avanzar() {
         item++
 
     }
+    interrumpirCiclo = true;
     movimientoSlide(item);
 
 }
@@ -80,7 +82,7 @@ $("#slide #retroceder").click(function() {
 
     if (item == 0) {
 
-        item = 3;
+        item = $("#slide ul li").length -1;
 
     } else {
 
@@ -95,6 +97,8 @@ MOVIMIENTO SLIDE
 =============================================*/
 
 function movimientoSlide(item) {
+
+    $("#slide ul li").finish();
 
     $("#slide ul").animate({ "left": item * -100 + "%" }, 1000, "easeOutQuart");
     $("#paginacion li").css({ "opacity": 0.5 })
@@ -129,6 +133,8 @@ setInterval(() => {
     if (interrumpirCiclo) {
         
         interrumpirCiclo = false;
+        detenerIntervalo = false;
+        $("#slide ul li").finish();
 
     } else {
         
