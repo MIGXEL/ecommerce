@@ -23,6 +23,12 @@ a:active {
     list-style: none;
     text-decoration: none;
 }
+a:focus, .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus, input[type="file"]:focus,
+input[type="radio"]:focus, input[type="checkbox"]:focus, input:focus {
+    outline-offset: 0;
+    outline: 0;
+}
+
 
 .barraSuperior {
     background: black;
@@ -139,6 +145,17 @@ ERROR 404
     color: #333;
 }
 
+/*=============================================
+SCROLL UP
+=============================================*/
+#scrollUp{
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: url(../img/plantilla/flecha.jpg);
+    border-radius: 50%;
+}
 
 /*=============================================
 ESCRITORIO GRANDE (LG revisamos en 1366px en adelante)

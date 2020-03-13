@@ -1,3 +1,7 @@
+<?php
+	$servidor = Ruta::ctrRutaServidor();
+?>
+
 <!--=====================================
 SLIDESHOW  
 ======================================-->
@@ -27,12 +31,12 @@ SLIDESHOW
 					# code...
 					echo '<li>
 					
-							<img src="http://localhost/ecommerce/backend/'.$value["imgFondo"].'">
+							<img src="'.$servidor.$value["imgFondo"].'">
 	
 							<div class="slideOpciones '.$value["tipoSlide"].'">';
 
 								if ($value["imgProducto"] != "") {
-									echo '<img class="imgProducto" src="http://localhost/ecommerce/backend/'.$value["imgProducto"].'
+									echo '<img class="imgProducto" src="'.$servidor.$value["imgProducto"].'
 									" style="top:'.$estiloImgProducto["top"].'; right:'.$estiloImgProducto["right"].'; 
 									width:'.$estiloImgProducto["width"].'; left:'.$estiloImgProducto["left"].'">';
 								}

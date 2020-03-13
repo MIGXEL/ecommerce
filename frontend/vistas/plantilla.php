@@ -10,14 +10,18 @@
     <title>Tienda Virtual - AntvasWeb</title>
 
     <?php
+
+    $servidor = Ruta::ctrRutaServidor();
+
     $icono = ControladorPlantilla::ctrEstiloPlantilla();
-    echo '<link rel="icon" href="http://localhost/ecommerce/backend/'.$icono["icono"].'">';
+    echo '<link rel="icon" href="'.$servidor.$icono["icono"].'">';
 
     /*=============================================
     MANTENER LA RUTA FIJA DEL PROYECTO
     =============================================*/
 
     $url = Ruta::ctrRuta();
+
 
     ?>
 
@@ -27,9 +31,11 @@
     <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plantilla.css">
     <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/cabezote.css">
     <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/slide.css">
+    <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/productos.css">
     <script src="<?php echo $url; ?>vistas/js/plugins/jquery.min.js"></script>
     <script src="<?php echo $url; ?>vistas/js/plugins/bootstrap.min.js"></script>
     <script src="<?php echo $url; ?>vistas/js/plugins/jquery.easing.js"></script>
+    <script src="<?php echo $url; ?>vistas/js/plugins/jquery.scrollUp.js"></script>
 
 </head>
 
@@ -90,6 +96,8 @@ if (isset($_GET["ruta"])) {
     
 }else{
     include 'modulos/slide.php';
+
+    include 'modulos/destacados.php';
 }
 
 ?>

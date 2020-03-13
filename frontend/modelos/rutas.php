@@ -7,4 +7,11 @@ class Ruta{
         return "http://localhost/ecommerce/frontend/";
         
     }
+
+    public function ctrRutaServidor(){
+
+        return "http://localhost/ecommerce/backend/";
+        
+    }
 }
+
